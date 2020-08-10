@@ -1,0 +1,5 @@
+<library path="lib/libsegmentation_layer">
+    <class type="segmentation_layer::GridLayer" base_class_type="costmap_2d::Layer">
+      <description>Demo Layer that marks all points that were ever one meter in front of the robot</description>
+    </class>
+  </library>

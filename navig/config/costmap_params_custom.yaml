@@ -1,0 +1,9 @@
+footprint: [[0.25, 0.25], [0.25, -0.25], [-0.25, -0.25], [-0.25, 0.25]]
+#robot_radius: ir_of_robot
+inflation_radius: 0.2
+plugins: 
+    - {name: ob,        type: "navig::GridLayer"}
+publish_frequency: 1.0
+ob:
+    observation_sources: depth_img
+    depth_img: {sensor_frame: camera_color_optical_frame, clearing: true, marking: true, topic: /pose_of_cluster}

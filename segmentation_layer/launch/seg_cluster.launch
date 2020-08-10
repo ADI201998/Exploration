@@ -1,0 +1,21 @@
+<launch>
+
+ <!--<node pkg="navig" type="frontiers" respawn="false" name="frontiers_node" output="screen" launch-prefix="gdb --><!--args">-->
+
+ <node pkg="navig" type="seg_clustering" respawn="false" name="seg_clustering_node" output="screen" />
+
+ <!--node pkg="tf" type="static_transform_publisher" respawn="false" name="base_to_camera" args="0 0 0 0 0 0 base_link camera_color_optical_frame 100"/>
+ <node pkg="tf" type="static_transform_publisher" respawn="false" name="map_to_base" args="20 20 0 0 0 0 map base_link 100"/>
+ 
+ <node name="map_server" pkg="map_server" type="map_server" args="$(find segmentation_layer)/config/realmap.yaml"/-->
+
+ <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find segmentation_layer)/config/costmap_params_custom.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find segmentation_layer)/config/costmap_params_custom.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find segmentation_layer)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find segmentation_layer)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find segmentation_layer)/config/base_local_planner_params.yaml" command="load" />
+ </node>
+
+
+</launch> 

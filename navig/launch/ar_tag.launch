@@ -1,0 +1,22 @@
+<launch>
+	<arg name="marker_size" default="10" />
+	<arg name="max_new_marker_error" default="0.08" />
+	<arg name="max_track_error" default="0.2" />
+
+	<arg name="cam_image_topic" default="/camera/depth/points" />
+	<arg name="cam_info_topic" default="/camera/color/camera_info" />
+	<arg name="output_frame" default="base_link" />
+
+	<node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen">
+		<param name="marker_size" value="9" />
+		<param name="max_new_marker_error" value="0.1" />
+		<param name="max_track_error" value="0.2" />
+		<param name="output_frame" value="kinect_sensor" />
+		<param name="camera_info" value="/camera/color/camera_info" />
+		<param name="camera_image" value="/camera/color/image_raw" />
+	</node>
+
+	<!--<node name="stair_traversal" pkg="navig" type="stair_traversal" respawn="false" output="screen" />-->
+
+
+</launch>

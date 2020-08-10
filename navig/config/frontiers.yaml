@@ -1,0 +1,14 @@
+global_frame: map
+robot_base_frame: base_link
+robot_base_laser_frame: base_laser_link
+robot_hostname: robot_0
+
+robot_tolerance: 1.5
+frontier_tolerance: 1.0
+inflation: 0.45
+
+map_topic: /map
+scan_topic: /base_scan
+
+num_robots: 1
+robot_namespace: X1  #for example robot_ for robot_0,robot_1 etc, X for X1,X2 etc. Leave blank otherwise

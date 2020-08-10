@@ -1,0 +1,21 @@
+footprint: [[0.3, 0.3], [0.3, -0.3], [-0.3, -0.3], [-0.3, 0.3]]
+#width: 10.0
+#height: 10.0
+#resolution: 0.1
+#robot_radius: ir_of_robot
+obstacle_range: 5.0
+raytrace_range: 5.0
+inflation_radius: 0.3
+plugins: 
+    - {name: segmented_obstacles,        type: "segmentation_layer::GridLayer"}
+    - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+publish_frequency: 10.0
+segmented_obstacles:
+    observation_sources: depth_img
+    depth_img: {sensor_frame: camera_color_optical_frame, clearing: true, marking: true, topic: /pose_of_cluster}
+
+inflation_layer:
+    enabled:              true
+    cost_scaling_factor:  10.0  # exponential rate at which the obstacle cost drops off (default: 10)
+    inflation_radius:     0.3  # max. distance from an obstacle at which costs are incurred for planning paths.
+
